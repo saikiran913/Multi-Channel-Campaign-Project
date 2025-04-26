@@ -1,0 +1,7 @@
+SELECT 
+    date,
+    SUM(spend) AS Daily_Spend,
+    SUM(clicks) AS Daily_Clicks
+FROM FactCampaignPerformance
+GROUP BY date
+ORDER BY date ASC;
