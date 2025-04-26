@@ -1,1 +1,15 @@
+SELECT TOP 10
+    dca.campaign_name,
+    SUM(fcp.spend) AS Total_Spend,
+    SUM(fcp.impressions) AS Total_Impressions,
+    SUM(fcp.clicks) AS Total_Clicks,
+    CASE 
+        WHEN SUM(fcp.impressions) > 0 THEN (SUM(fcp.clicks) * 100.0 / SUM(fcp.impressions))
+        ELSE 0
+    END AS CTR_Percentage
+FROM FactCampaignPerformance fcp
+JOIN DimCampaign dca ON fcp.campaign_key = dca.campaign_key
+WHERE dca.active_flag = 'Y'
+GROUP BY dca.campaign_name
+ORDER BY Total_Spend DESC;
 
