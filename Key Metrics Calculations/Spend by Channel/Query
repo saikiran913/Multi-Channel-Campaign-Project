@@ -1,0 +1,11 @@
+SELECT 
+    dch.channel_name,
+    SUM(fcp.spend) AS Total_Spend
+FROM FactCampaignPerformance fcp
+JOIN DimCampaign dca ON fcp.campaign_key = dca.campaign_key
+JOIN DimChannel dch ON dca.channel_key = dch.channel_key
+WHERE dch.active_flag = 'Y'
+  AND dca.active_flag = 'Y'
+GROUP BY dch.channel_name
+ORDER BY Total_Spend DESC;
+
