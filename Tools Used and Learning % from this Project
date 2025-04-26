@@ -1,0 +1,8 @@
+
+        Tool                         | % Learning from Project
+
+Azure Blob Storage                   | 5%               Uploading/Managing Raw Files
+Azure Data Factory (ADF)             | 25%              Automating ETL Pipeline
+Azure Synapse Analytics (SQL Pool)   | 60%              Building Data Warehouse
+SQL Language (Inside Synapse)        | 10%              Writing Professional Queries, SPs, Metrics
+
