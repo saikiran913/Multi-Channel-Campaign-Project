@@ -1,0 +1,13 @@
+SELECT 
+    SUM(spend) AS Total_Spend,
+    SUM(impressions) AS Total_Impressions,
+    SUM(clicks) AS Total_Clicks,
+    CASE 
+        WHEN SUM(impressions) > 0 THEN (SUM(clicks) * 100.0 / SUM(impressions))
+        ELSE 0
+    END AS Overall_CTR_Percentage,
+    CASE 
+        WHEN SUM(clicks) > 0 THEN (SUM(spend) / SUM(clicks))
+        ELSE 0
+    END AS Overall_CPC
+FROM FactCampaignPerformance;
